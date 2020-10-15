@@ -11,6 +11,7 @@
 total_compra = 0.00
 cont = 0
 produto_caro = 0
+saved_nome = 'none'
 
 print('-' * 15)
 print('   LOJA 10   ')
@@ -30,17 +31,18 @@ while True:
     
     # Qual é o nome do produto mais barato
     cont += 1
+    
     if cont == 1:
         preco_maior = preco_produto
         preco_menor = preco_produto
+        saved_nome = nome_produto
     else:
         if preco_produto > preco_maior:
             preco_maior = preco_produto
         elif preco_produto < preco_menor:
             preco_menor = preco_produto
-            produto_barato = nome_produto
+            saved_nome = nome_produto
 
-        
     # Perguntar ao usuário se deseja continuar registrando a compra
     continuar = str(input('Deseja continuar? [S | N] ')).strip().upper()
     
@@ -53,4 +55,4 @@ print()
 print('----- Relatório da compra -----')
 print(f'Total da compra: R$ {total_compra:.2f}')
 print(f'Temos {produto_caro} produtos custando mais de R$ 1000.00')
-print(f'O produto mais barato foi {produto_barato} que custa {preco_menor:.2f}')
+print(f'O produto mais barato foi {saved_nome} que custa {preco_menor:.2f}')
